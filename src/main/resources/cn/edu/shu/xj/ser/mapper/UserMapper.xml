@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.shu.xj.ser.mapper.UserMapper">
+    <!-- 通用查询映射结果 -->
+    <resultMap id="userResultMap" type="cn.edu.shu.xj.ser.entity.UserEntity">
+        <result column="user_id" property="userId"/>
+        <result column="user_name" property="userName"/>
+        <result column="user_phone" property="userPhone"/>
+        <result column="user_pwd" property="userPwd"/>
+        <result column="user_city" property="userCity"/>
+        <result column="user_address" property="userAddress"/>
+        <result column="user_picture" property="userPicture"/>
+        <result column="user_time" property="userTime"/>
+        <result column="user_remind" property="userRemind"/>
+        <result column="user_longitude" property="userLongitude"/>
+        <result column="user_latitude" property="userLatitude"/>
+        <result column="user_Now" property="userNow"/>
+    </resultMap>
+
+    <select id="findUserById" resultMap="userResultMap">
+        select *
+        from user
+        where user_id=#{userId}
+    </select>
+
+    <select id="findUserListTotal" resultMap="userResultMap">
+        select *
+        from user
+    </select>
+
+    <select id="findUserList" resultMap="userResultMap">
+        select *
+        from user
+        limit #{Myvalue}, #{size}
+    </select>
+
+    <select id="getUserById" resultMap="userResultMap">
+        select *
+        from user
+        where user_id = #{userId}
+    </select>
+
+    <update id="editUser">
+        UPDATE user
+        SET user_city=#{userCity}, user_address=#{userAddress}
+        where user_id = #{userId}
+    </update>
+
+    <delete id="deleteUser">
+        DELETE FROM user
+        WHERE user_id=#{userId}
+    </delete>
+
+    <select id="findUserByPhone" resultType="cn.edu.shu.xj.ser.entity.UserEntity">
+        select *
+        from user
+        where user_phone = ${phone}
+    </select>
+</mapper>

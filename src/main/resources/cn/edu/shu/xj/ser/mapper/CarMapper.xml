@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.shu.xj.ser.mapper.CarMapper">
+    <!-- 通用查询映射结果 -->
+    <resultMap id="carResultMap" type="cn.edu.shu.xj.ser.entity.CarEntity">
+        <result column="car_id" property="carId"/>
+        <result column="user_id" property="userId"/>
+        <result column="car_plates" property="carPlates"/>
+        <result column="car_style" property="carStyle"/>
+        <result column="car_pic" property="carPic"/>
+        <result column="car_city" property="carCity"/>
+        <result column="car_longitude" property="carLongitude"/>
+        <result column="car_latitude" property="carLatitude"/>
+        <result column="car_now" property="carNow"/>
+    </resultMap>
+    <insert id="addUserCar">
+        insert into car
+        set user_id=#{userId} ,car_plates=#{carPlates},car_style=#{carStyle},car_pic=#{url},car_city=#{carCity},car_now=0,car_longitude=#{userLongtitude},car_latitude=#{userLatitude}
+    </insert>
+
+    <insert id="addUserCarNoPic">
+        insert into car
+        set user_id=#{userId} ,car_plates=#{carPlates},car_style=#{carStyle},car_city=#{carCity},car_now=0,car_longitude=#{userLongtitude},car_latitude=#{userLatitude}
+    </insert>
+
+    <select id="findCarCityAndCount" resultType="cn.edu.shu.xj.ser.entity.CarEntity">
+        select car_city as carCity, COUNT(*) as cityCount
+        from car
+        GROUP BY carCity
+    </select>
+
+    <select id="findCarListTotal" resultType="Integer">
+        select count(*)
+        from car
+        where car_city LIKE "%"#{carCity}"%" AND car_plates LIKE "%"#{carPlates}"%" AND car_style like "%"#{carStyle}"%"
+    </select>
+
+    <select id="queryCarList" resultMap="carResultMap">
+        select car.* ,user_name as userName, user_phone as userPhone ,user_address as userAddress
+        from car , user
+        where car_city LIKE "%"#{carCity}"%" AND car_plates LIKE "%"#{carPlates}"%" AND car_style LIKE "%"#{carStyle}"%" AND car.user_id =user.user_id
+        limit #{Myvalue},#{size}
+    </select>
+
+    <select id="findStoppedCars" resultMap="carResultMap">
+        select car.*, user.user_phone as userPhone,user.user_name as userName,user_now as userNow
+        from car , user
+        where car_now = 0 AND car.user_id = user.user_id
+    </select>
+
+    <select id="findStartedCars" resultMap="carResultMap">
+        select car.*, user.user_phone as userPhone,user.user_name as userName,user_now as userNow
+        from car, user
+        where car_now = 1 AND car.user_id = user.user_id
+    </select>
+
+    <select id="findUserCarsById" resultType="cn.edu.shu.xj.ser.entity.CarEntity">
+        select *
+        from car
+        where user_id = ${userId}
+    </select>
+</mapper>
