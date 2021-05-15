@@ -88,4 +88,41 @@ public interface ICarService  extends IService<CarEntity> {
      * @param carId
      */
     void startMyUsedCar(Long userId,Long carId);
+
+    /**
+     * 启用编号对应车辆 进行用户车辆同步
+     * @param userId
+     * @param index
+     */
+    void startCarByIndex(Long userId,Integer index);
+
+    /**
+     * 该用户是否驾驶车辆
+     * @param userId
+     * @return
+     */
+    long ifStartedCarByUser(Long userId);
+
+    /**
+     * 该用户驾驶车辆的id
+     * @param userId
+     * @return
+     */
+    long getStartedCarByUser(Long userId);
+
+    /**
+     * 修改汽车的经纬度
+     * @param userId
+     * @param carId
+     * @param longitude
+     * @param latitude
+     */
+    void editCarTitude(Long userId,Long carId,Double longitude,Double latitude);
+
+    /**
+     * 当前正在驾驶的车
+     * @param userId
+     * @return
+     */
+    CarEntity getNowUserStartByid(Long userId);
 }

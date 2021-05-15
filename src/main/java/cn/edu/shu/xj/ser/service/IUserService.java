@@ -55,4 +55,13 @@ public interface IUserService extends IService<UserEntity> {
      * @return
      */
     UserEntity findUserByPhone(String phone);
+
+    /**
+     * 改变用户经纬度
+     * @param userId
+     * @param carId
+     * @param longitude
+     * @param latitude
+     */
+    void editUserTitude(Long userId,Long carId,Double longitude,Double latitude);
 }

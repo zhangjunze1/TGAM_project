@@ -65,4 +65,29 @@ public class CarService extends ServiceImpl<CarMapper, CarEntity> implements ICa
         carMapper.startMyUsedCar(userId, carId);
     }
 
+    @Override
+    public void startCarByIndex(Long userId, Integer index) {
+        carMapper.startCarByIndex(userId, index);
+    }
+
+    @Override
+    public long ifStartedCarByUser(Long userId) {
+        return carMapper.ifStartedCarByUser(userId);
+    }
+
+    @Override
+    public long getStartedCarByUser(Long userId) {
+        return carMapper.getStartedCarByUser(userId);
+    }
+
+    @Override
+    public void editCarTitude(Long userId,Long carId,Double longitude, Double latitude) {
+        carMapper.editCarTitude(userId,carId,longitude, latitude);
+    }
+
+    @Override
+    public CarEntity getNowUserStartByid(Long userId) {
+        return carMapper.getNowUserStartByid(userId);
+    }
+
 }

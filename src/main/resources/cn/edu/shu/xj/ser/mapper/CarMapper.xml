@@ -60,6 +60,23 @@
         where user_id = ${userId}
     </select>
 
+    <select id="ifStartedCarByUser" resultType="java.lang.Long">
+        select count(*)
+        from car
+        where user_id = #{userId} and car_now = 1
+    </select>
+
+    <select id="getStartedCarByUser" resultType="java.lang.Long">
+        select car_id
+        from car
+        where user_id = #{userId} and car_now = 1
+    </select>
+    <select id="getNowUserStartByid" resultType="cn.edu.shu.xj.ser.entity.CarEntity">
+        select *
+        from car
+        where user_id = #{userId} and car_now = 1
+    </select>
+
     <update id="stopAllotherCars">
         update car
         set car_now = 0
@@ -70,5 +87,28 @@
         update car
         set car_now = 1
         where user_id =#{userId} and car_id =#{carId}
+    </update>
+
+    <update id="editCarTitude">
+        update car
+        set car_longitude = #{longitude} ,car_latitude = #{latitude}
+        where car_id = #{carId} and user_id =#{userId}
+    </update>
+
+    <update id="startCarByIndex">
+    UPDATE car
+    set car_now = 1
+    where car_id =(
+        SELECT car_id
+        from
+        (
+            select car_id
+            from car
+            where user_id = #{userId}
+            order by car_id
+            LIMIT #{index}
+        ) as temp
+        order by car_id DESC
+        LIMIT 1)
     </update>
 </mapper>

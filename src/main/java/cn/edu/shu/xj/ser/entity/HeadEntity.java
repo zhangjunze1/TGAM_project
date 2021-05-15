@@ -27,7 +27,7 @@ public class HeadEntity {
     private Long headLowBeta;
     private Long headHighBeta;
     private Long headLowGamma;
-    private Long headMiddleGamma;
+    private Long headHighGamma;
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
     private Timestamp headTime;
     private Integer headStatus;

@@ -14,11 +14,56 @@
         <result column="head_low_beta" property="headLowBeta"/>
         <result column="head_high_beta" property="headHighBeta"/>
         <result column="head_low_gamma" property="headLowGamma"/>
-        <result column="head_middle_gamma" property="headMiddleGamma"/>
+        <result column="head_high_gamma" property="headHighGamma"/>
         <result column="head_time" property="headTime"/>
         <result column="head_status" property="headStatus"/>
     </resultMap>
+    <insert id="addData">
+        insert into head(user_id,head_att,head_med,head_delta,head_theta,head_low_alpha,head_high_alpha,head_low_beta,head_high_beta,head_low_gamma,head_high_gamma,head_time,head_status)
+        VALUES(#{userId},#{headAtt},#{headMed},#{headDelta},#{headTheta},#{headLowAlpha},#{headHighAlpha},#{headLowBeta},#{headHighBeta},#{headLowGamma},#{headHighGamma},#{dataTime},#{headStatus})
+    </insert>
 
+    <select id="getAllMyrecordTotal" resultType="java.lang.Long">
+        select count(*)
+        from head
+        where head_status = 0 and user_id =#{userId}
+    </select>
+
+    <select id="getUserRemindTimes" resultType="java.lang.Long">
+        select user_remind
+        from user
+        where user_id =#{userId}
+    </select>
+
+    <select id="getAllMyrecordAllTime" resultType="java.lang.Long">
+        select count(*)
+        from head
+        where user_id =#{userId}
+    </select>
+
+    <select id="getdataFromMachine0" resultType="cn.edu.shu.xj.ser.entity.HeadEntity">
+        SELECT *
+        FROM head AS t1 JOIN (SELECT ROUND(RAND()*(SELECT MAX(head_id) FROM head)) AS id) AS t2
+        WHERE t1.head_id>=t2.id and head_status = 0
+        ORDER BY t1.head_id LIMIT 1
+    </select>
+
+    <select id="getdataFromMachine1" resultType="cn.edu.shu.xj.ser.entity.HeadEntity">
+        SELECT *
+        FROM head AS t1 JOIN (SELECT ROUND(RAND()*(SELECT MAX(head_id) FROM head)) AS id) AS t2
+        WHERE t1.head_id>=t2.id and head_status =1
+        ORDER BY t1.head_id LIMIT 1
+    </select>
+
+    <select id="getNewData" resultType="cn.edu.shu.xj.ser.entity.HeadEntity">
+        select head.*
+        from head
+        where head_id = (
+	        select max(head_id)
+	        from head
+	        where user_id = #{userId})
+        order by head.head_id
+    </select>
 
 
 </mapper>

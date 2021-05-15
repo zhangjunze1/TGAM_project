@@ -46,6 +46,12 @@
         where user_id = #{userId}
     </update>
 
+    <update id="editUserTitude">
+        update user
+        set user_longitude=#{longitude} ,user_latitude=#{latitude}
+        where user_id = #{userId}
+    </update>
+
     <delete id="deleteUser">
         DELETE FROM user
         WHERE user_id=#{userId}

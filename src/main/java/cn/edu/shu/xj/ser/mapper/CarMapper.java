@@ -28,4 +28,14 @@ public interface CarMapper extends BaseMapper<CarEntity> {
     void stopAllotherCars(Long userId);
 
     void startMyUsedCar(Long userId,Long carId);
+
+    void startCarByIndex(Long userId,Integer index);
+
+    long ifStartedCarByUser(Long userId);
+
+    long getStartedCarByUser(Long userId);
+
+    void editCarTitude(Long userId,Long carId,Double longitude,Double latitude);
+
+    CarEntity getNowUserStartByid(Long userId);
 }

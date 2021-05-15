@@ -23,4 +23,6 @@ public interface UserMapper extends BaseMapper<UserEntity>{
     void deleteUser(Long userId);
 
     UserEntity findUserByPhone(String phone);
+
+    void editUserTitude(Long userId,Long carId,Double longitude,Double latitude);
 }

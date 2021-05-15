@@ -38,6 +38,10 @@ public enum ResultCode implements CustomizeResultCode{
      */
     ERROR_USER_PWD(3013,"用户输入密码错误"),
     /**
+     * 3014:"该用户尚未驾驶车辆"
+     */
+    NO_CAR_USER_USED(3014,"该用户尚未驾驶车辆"),
+    /**
      * 4001:"本管理员用户名不存在"
      */
     NO_ADMIN(4001,"本管理员用户名不存在"),

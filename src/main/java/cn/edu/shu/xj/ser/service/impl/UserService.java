@@ -50,5 +50,10 @@ public class UserService extends ServiceImpl<UserMapper, UserEntity> implements 
         return userMapper.findUserByPhone(phone);
     }
 
+    @Override
+    public void editUserTitude(Long userId, Long carId, Double longitude, Double latitude) {
+        userMapper.editUserTitude(userId, carId, longitude, latitude);
+    }
+
 
 }
