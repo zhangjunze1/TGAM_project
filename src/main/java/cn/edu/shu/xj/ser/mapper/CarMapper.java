@@ -24,4 +24,8 @@ public interface CarMapper extends BaseMapper<CarEntity> {
     void addUserCar(Long userId,String carPlates,String carStyle,String carCity,String url,double userLongtitude,double userLatitude);
 
     void addUserCarNoPic(Long userId,String carPlates,String carStyle,String carCity,double userLongtitude,double userLatitude);
+
+    void stopAllotherCars(Long userId);
+
+    void startMyUsedCar(Long userId,Long carId);
 }

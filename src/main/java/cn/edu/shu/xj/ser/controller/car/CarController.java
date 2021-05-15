@@ -100,4 +100,15 @@ public class CarController {
         return Result.ok();
     }
 
+    @ApiOperation(value = "驾驶汽车")
+    @PostMapping(value = "/startCar")
+    public Result addUserCars(@RequestParam(required = true)Long userId,
+                              @RequestParam(required = true)Long carId) throws IOException {
+        // 停用该用户所有车辆使用
+        carService.stopAllotherCars(userId);
+        // 启用对应车辆 进行用户车辆同步
+        carService.startMyUsedCar(userId,carId);
+        return Result.ok();
+    }
+
 }

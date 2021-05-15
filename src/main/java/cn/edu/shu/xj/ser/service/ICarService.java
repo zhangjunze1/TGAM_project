@@ -75,4 +75,17 @@ public interface ICarService  extends IService<CarEntity> {
      * @param userLatitude
      */
     void addUserCarNoPic(Long userId,String carPlates,String carStyle,String carCity,double userLongtitude,double userLatitude);
+
+    /**
+     * 停止该用户的车辆，使车辆状态变为未使用
+     * @param userId
+     */
+    void stopAllotherCars(Long userId);
+
+    /**
+     * 启用对应车辆 进行用户车辆同步
+     * @param userId
+     * @param carId
+     */
+    void startMyUsedCar(Long userId,Long carId);
 }

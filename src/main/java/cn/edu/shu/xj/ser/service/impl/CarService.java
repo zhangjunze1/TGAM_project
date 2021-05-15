@@ -54,4 +54,15 @@ public class CarService extends ServiceImpl<CarMapper, CarEntity> implements ICa
     public void addUserCarNoPic(Long userId, String carPlates, String carStyle, String carCity, double userLongtitude, double userLatitude) {
         carMapper.addUserCarNoPic(userId, carPlates, carStyle, carCity, userLongtitude, userLatitude);
     }
+
+    @Override
+    public void stopAllotherCars(Long userId) {
+        carMapper.stopAllotherCars(userId);
+    }
+
+    @Override
+    public void startMyUsedCar(Long userId, Long carId) {
+        carMapper.startMyUsedCar(userId, carId);
+    }
+
 }
