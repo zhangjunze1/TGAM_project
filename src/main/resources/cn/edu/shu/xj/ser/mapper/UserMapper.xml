@@ -57,6 +57,11 @@
         set user_remind = user_remind + 1
         where user_now = 0
     </update>
+    <update id="warningtiredUserById">
+        update user
+        set user_remind = user_remind + 1
+        where user_id =#{userId}
+    </update>
 
     <delete id="deleteUser">
         DELETE FROM user

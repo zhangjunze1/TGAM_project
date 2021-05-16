@@ -34,9 +34,13 @@ public class UserEntity {
     private Integer userNow;
 
     @TableField(exist = false)
-    private Long times;
+    private String times;
     @TableField(exist = false)
-    private Long alltimes;
+    private String alltimes;
     @TableField(exist = false)
     private Long reminded;
+    @TableField(exist = false)
+    private String carPlates;
+    @TableField(exist = false)
+    private String tiredSituation;
 }

@@ -76,4 +76,10 @@ public interface IUserService extends IService<UserEntity> {
      * 点击按钮对当前疲劳的用户进行警告
      */
     void warningAllTiredUser();
+
+    /**
+     * 点击按钮对所选择用户进行警告
+     * @param userId
+     */
+    void warningtiredUserById(Long userId);
 }

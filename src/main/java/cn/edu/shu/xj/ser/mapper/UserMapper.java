@@ -30,4 +30,6 @@ public interface UserMapper extends BaseMapper<UserEntity>{
 
     void warningAllTiredUser();
 
+    void warningtiredUserById(Long userId);
+
 }

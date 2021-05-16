@@ -65,5 +65,10 @@ public class UserService extends ServiceImpl<UserMapper, UserEntity> implements 
         userMapper.warningAllTiredUser();
     }
 
+    @Override
+    public void warningtiredUserById(Long userId) {
+        userMapper.warningtiredUserById(userId);
+    }
+
 
 }

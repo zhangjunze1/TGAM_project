@@ -2,7 +2,9 @@ package cn.edu.shu.xj.ser.controller.user;
 
 import cn.edu.shu.xj.ser.entity.CarEntity;
 import cn.edu.shu.xj.ser.entity.UserEntity;
+import cn.edu.shu.xj.ser.handler.BusinessException;
 import cn.edu.shu.xj.ser.response.Result;
+import cn.edu.shu.xj.ser.response.ResultCode;
 import cn.edu.shu.xj.ser.service.ICarService;
 import cn.edu.shu.xj.ser.service.IUserService;
 import io.swagger.annotations.Api;
@@ -60,6 +62,18 @@ public class UserController {
     public Result warningAllTiredUser(){
         userService.warningAllTiredUser();
         return Result.ok();
+    }
+
+    @ApiOperation(value = "点击按钮对当前疲劳的用户进行警告")
+    @PostMapping("/warningtiredUserById")
+    public Result warningtiredUserById(@RequestParam(required = false)Long userId){
+        if (carService.ifStartedCarByUser(userId)==0){
+            throw new BusinessException(ResultCode.NO_CAR_USER_USED.getCode(),
+                    ResultCode.NO_CAR_USER_USED.getMessage());
+        }
+        userService.warningtiredUserById(userId);
+        return Result.ok();
+
     }
 
     @ApiOperation(value = "用户司机信息删除")

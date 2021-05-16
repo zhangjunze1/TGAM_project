@@ -65,5 +65,11 @@
         order by head.head_id
     </select>
 
+    <select id="getTenMinData" resultType="cn.edu.shu.xj.ser.entity.HeadEntity">
+        select *
+        from head
+        where head_time >=#{nowTime_10} And user_id = #{userId}
+    </select>
+
 
 </mapper>

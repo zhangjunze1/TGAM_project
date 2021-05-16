@@ -3,6 +3,8 @@ package cn.edu.shu.xj.ser.service;
 import cn.edu.shu.xj.ser.entity.HeadEntity;
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import java.util.List;
+
 public interface IHeadService extends IService<HeadEntity> {
 
     /**
@@ -65,5 +67,11 @@ public interface IHeadService extends IService<HeadEntity> {
      */
     HeadEntity getNewData(Long userId);
 
-
+    /**
+     * 十分钟（600s）内疲劳情况
+     * @param userId
+     * @param nowTime_10
+     * @return
+     */
+    List<HeadEntity> getTenMinData(Long userId ,String nowTime_10);
 }

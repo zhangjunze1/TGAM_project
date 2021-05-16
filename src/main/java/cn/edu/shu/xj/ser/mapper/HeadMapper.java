@@ -26,5 +26,5 @@ public interface HeadMapper extends BaseMapper<HeadEntity> {
 
     HeadEntity getNewData(Long userId);
 
-
+    List<HeadEntity> getTenMinData(Long userId,String nowTime_10);
 }

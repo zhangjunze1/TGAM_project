@@ -7,6 +7,8 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service("headService")
 public class HeadService extends ServiceImpl<HeadMapper, HeadEntity> implements IHeadService {
 
@@ -48,6 +50,10 @@ public class HeadService extends ServiceImpl<HeadMapper, HeadEntity> implements 
         return headMapper.getNewData(userId);
     }
 
+    @Override
+    public List<HeadEntity> getTenMinData(Long userId,String nowTime_10) {
+        return headMapper.getTenMinData(userId,nowTime_10);
+    }
 
 
 }
