@@ -27,4 +27,7 @@ public interface UserMapper extends BaseMapper<UserEntity>{
     void editUserTitude(Long userId,Long carId,Double longitude,Double latitude);
 
     Long getUserIdByI(Integer i);
+
+    void warningAllTiredUser();
+
 }

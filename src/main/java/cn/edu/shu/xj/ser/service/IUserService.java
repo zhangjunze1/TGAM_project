@@ -71,4 +71,9 @@ public interface IUserService extends IService<UserEntity> {
      * @return
      */
     Long getUserIdByI(Integer i);
+
+    /**
+     * 点击按钮对当前疲劳的用户进行警告
+     */
+    void warningAllTiredUser();
 }

@@ -52,6 +52,12 @@
         where user_id = #{userId}
     </update>
 
+    <update id="warningAllTiredUser">
+        update user
+        set user_remind = user_remind + 1
+        where user_now = 0
+    </update>
+
     <delete id="deleteUser">
         DELETE FROM user
         WHERE user_id=#{userId}

@@ -1,15 +1,14 @@
 package cn.edu.shu.xj.ser.controller.user;
 
+import cn.edu.shu.xj.ser.entity.CarEntity;
 import cn.edu.shu.xj.ser.entity.UserEntity;
 import cn.edu.shu.xj.ser.response.Result;
+import cn.edu.shu.xj.ser.service.ICarService;
 import cn.edu.shu.xj.ser.service.IUserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,6 +19,9 @@ public class UserController {
 
     @Autowired
     IUserService userService;
+
+    @Autowired
+    ICarService carService;
 
     @ApiOperation(value = "返回对应分页查询的用户司机信息")
     @GetMapping("/findUserList")
@@ -53,11 +55,29 @@ public class UserController {
         return Result.ok().data("user",userEntity);
     }
 
+    @ApiOperation(value = "点击按钮对当前疲劳的用户进行警告")
+    @PostMapping("/warningAllTiredUser")
+    public Result warningAllTiredUser(){
+        userService.warningAllTiredUser();
+        return Result.ok();
+    }
+
     @ApiOperation(value = "用户司机信息删除")
     @GetMapping("/deleteUser")
     public Result deleteUser(@RequestParam(required = false)Long userId){
         userService.deleteUser(userId);
         return Result.ok();
+    }
+
+    @ApiOperation(value = "查找用户 车辆 正在驾驶 尚未使用 各种信息")
+    @GetMapping("/findCarsAndUser")
+    public Result findCarsAndUser(){
+        Integer userNum = userService.count();
+        List<CarEntity> startedCarList = carService.findStartedCars();
+        Integer startedCarNum = startedCarList.size();
+        List<CarEntity> stoppedCarList = carService.findStoppedCars();
+        Integer stoppedCarNum = stoppedCarList.size();
+        return Result.ok().data("userNum",userNum).data("startedCarNum",startedCarNum).data("stoppedCarNum",stoppedCarNum);
     }
 
 }

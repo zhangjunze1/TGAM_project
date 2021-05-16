@@ -60,5 +60,10 @@ public class UserService extends ServiceImpl<UserMapper, UserEntity> implements 
         return userMapper.getUserIdByI(i);
     }
 
+    @Override
+    public void warningAllTiredUser() {
+        userMapper.warningAllTiredUser();
+    }
+
 
 }

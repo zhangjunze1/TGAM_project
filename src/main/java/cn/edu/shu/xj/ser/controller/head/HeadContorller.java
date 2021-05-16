@@ -95,6 +95,8 @@ public class HeadContorller {
         return  Result.ok().data("data",newheadEntity).data("remind",remindTimes);
     }
 
+
+
     @ApiOperation(value = "获取所有人历史疲劳记录展示")
     @GetMapping("/getAllUsersRecord")
     public Result getAllUsersRecord(){
