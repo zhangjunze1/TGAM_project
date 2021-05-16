@@ -64,4 +64,6 @@ public interface IHeadService extends IService<HeadEntity> {
      * @return
      */
     HeadEntity getNewData(Long userId);
+
+
 }

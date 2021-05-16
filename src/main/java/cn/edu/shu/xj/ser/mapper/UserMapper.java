@@ -25,4 +25,6 @@ public interface UserMapper extends BaseMapper<UserEntity>{
     UserEntity findUserByPhone(String phone);
 
     void editUserTitude(Long userId,Long carId,Double longitude,Double latitude);
+
+    Long getUserIdByI(Integer i);
 }

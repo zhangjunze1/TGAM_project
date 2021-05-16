@@ -1,6 +1,7 @@
 package cn.edu.shu.xj.ser.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -31,4 +32,11 @@ public class UserEntity {
     private Double userLongitude;
     private Double userLatitude;
     private Integer userNow;
+
+    @TableField(exist = false)
+    private Long times;
+    @TableField(exist = false)
+    private Long alltimes;
+    @TableField(exist = false)
+    private Long reminded;
 }

@@ -3,6 +3,7 @@ package cn.edu.shu.xj.ser.controller.head;
 
 import cn.edu.shu.xj.ser.entity.CarEntity;
 import cn.edu.shu.xj.ser.entity.HeadEntity;
+import cn.edu.shu.xj.ser.entity.UserEntity;
 import cn.edu.shu.xj.ser.handler.BusinessException;
 import cn.edu.shu.xj.ser.response.Result;
 import cn.edu.shu.xj.ser.response.ResultCode;
@@ -11,9 +12,11 @@ import cn.edu.shu.xj.ser.service.IHeadService;
 import cn.edu.shu.xj.ser.service.IUserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Api(tags = "数据接口")
@@ -36,9 +39,9 @@ public class HeadContorller {
         // 疲劳的时间
         Long times = headService.getAllMyrecordTotal(userId);
         // 总时长
-        Long alltimes = headService.getAllMyrecordAllTime(userId);
+        Long alltimes = 5 * headService.getAllMyrecordAllTime(userId);
         // 被检测中心提醒的次数
-        Long reminded = 5 * headService.getUserRemindTimes(userId);
+        Long reminded = headService.getUserRemindTimes(userId);
         return  Result.ok().data("times",times).data("alltimes",alltimes).data("reminded",reminded);
     }
 
@@ -85,7 +88,37 @@ public class HeadContorller {
                 headHighAlpha,headLowBeta,headHighBeta,headLowGamma,headHighGamma
                 ,dataTime,headStatus);
         HeadEntity newheadEntity = headService.getNewData(userId);
-        return  Result.ok().data("data",newheadEntity);
+
+        // 获取用户对应的提醒次数 已方便app用户端接收 比对 进行警报
+        UserEntity nowUser = userService.getUserById(userId);
+        Integer remindTimes = nowUser.getUserRemind();
+        return  Result.ok().data("data",newheadEntity).data("remind",remindTimes);
     }
+
+    @ApiOperation(value = "获取所有人历史疲劳记录展示")
+    @GetMapping("/getAllUsersRecord")
+    public Result getAllUsersRecord(){
+        Integer UserNum = userService.count();
+        Integer i = 1;
+        List<UserEntity> allRecord = new ArrayList<UserEntity>();
+        while(i!=UserNum+1){
+            // 通过i的大小按照顺序找到从小到大排列的UserId
+            Long userId = userService.getUserIdByI(i);
+            // 疲劳的时间
+            Long times = headService.getAllMyrecordTotal(userId);
+            // 总时长
+            Long alltimes = 5 * headService.getAllMyrecordAllTime(userId);
+            // 被检测中心提醒的次数
+            Long reminded =  headService.getUserRemindTimes(userId);
+            UserEntity userEntity = userService.getUserById(userId);
+            userEntity.setTimes(times);
+            userEntity.setAlltimes(alltimes);
+            userEntity.setReminded(reminded);
+            allRecord.add(userEntity);
+            i++;
+        }
+        return  Result.ok().data("num", UserNum).data("UserAll",allRecord);
+    }
+
 
 }

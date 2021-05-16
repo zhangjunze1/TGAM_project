@@ -55,5 +55,10 @@ public class UserService extends ServiceImpl<UserMapper, UserEntity> implements 
         userMapper.editUserTitude(userId, carId, longitude, latitude);
     }
 
+    @Override
+    public Long getUserIdByI(Integer i) {
+        return userMapper.getUserIdByI(i);
+    }
+
 
 }

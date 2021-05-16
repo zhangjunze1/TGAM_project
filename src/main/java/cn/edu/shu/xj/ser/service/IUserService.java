@@ -64,4 +64,11 @@ public interface IUserService extends IService<UserEntity> {
      * @param latitude
      */
     void editUserTitude(Long userId,Long carId,Double longitude,Double latitude);
+
+    /**
+     * 获取顺序第i个大的Id
+     * @param i
+     * @return
+     */
+    Long getUserIdByI(Integer i);
 }

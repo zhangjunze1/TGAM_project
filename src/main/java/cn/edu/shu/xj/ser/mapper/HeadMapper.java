@@ -2,6 +2,7 @@ package cn.edu.shu.xj.ser.mapper;
 
 import cn.edu.shu.xj.ser.entity.HeadEntity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import io.swagger.models.auth.In;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -24,4 +25,6 @@ public interface HeadMapper extends BaseMapper<HeadEntity> {
             ,String dataTime,Integer headStatus);
 
     HeadEntity getNewData(Long userId);
+
+
 }
