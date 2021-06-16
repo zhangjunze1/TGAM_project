@@ -13,6 +13,11 @@ import lombok.NoArgsConstructor;
 import java.sql.Timestamp;
 import java.util.Objects;
 
+/**
+ * form ZUCC_Zhangjz
+ * @author 41205
+ */
+
 @Data
 @TableName("user")
 @AllArgsConstructor

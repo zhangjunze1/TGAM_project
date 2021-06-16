@@ -14,6 +14,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * 都交由WebMvcConfigurerAdapter抽象类空实现,如果我们需要针对具体的某一个方法做出逻辑处理,仅仅需要在WebMvcConfigurerAdapter子类中@Override对应方法就可以了。
  * InterceptorRegistry内的addInterceptor需要一个实现HandlerInterceptor接口的拦截器实例，addPathPatterns方法用于设置拦截器的过滤路径规则。
  * 这里我拦截所有请求，通过判断是否有@LoginRequired注解 决定是否需要登录
+ * form ZUCC_Zhangjz
+ * @author 41205
  */
 @Configuration
 public class InterceptorConfig implements WebMvcConfigurer {

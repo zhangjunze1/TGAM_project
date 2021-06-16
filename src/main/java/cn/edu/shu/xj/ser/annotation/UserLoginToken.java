@@ -8,6 +8,8 @@ import java.lang.annotation.Target;
 
 /**
  * 需要登录才能进行操作的注解UserLoginToken
+ * form ZUCC_Zhangjz
+ * @author 41205
  */
 @Target({ElementType.METHOD, ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)

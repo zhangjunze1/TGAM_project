@@ -7,7 +7,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-
+/**
+ * form ZUCC_Zhangjz
+ * @author 41205
+ */
 
 @MapperScan("cn.edu.shu.xj.ser.*")
 @SpringBootApplication

@@ -6,6 +6,11 @@ import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;
 
+/**
+ * form ZUCC_Zhangjz
+ * @author 41205
+ */
+
 public interface ICarService  extends IService<CarEntity> {
 
     /**

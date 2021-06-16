@@ -6,6 +6,11 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+/**
+ * form ZUCC_Zhangjz
+ * @author 41205
+ */
+
 @ControllerAdvice
 public class GlobalExceptionHandler {
 

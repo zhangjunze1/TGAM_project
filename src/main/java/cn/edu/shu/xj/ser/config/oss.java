@@ -30,6 +30,10 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Date;
 
+/**
+ * form ZUCC_Zhangjz
+ * @author 41205
+ */
 @Api(tags = "文件上传")
 @RestController
 @Service

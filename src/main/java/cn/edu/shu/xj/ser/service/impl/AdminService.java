@@ -7,6 +7,11 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ * form ZUCC_Zhangjz
+ * @author 41205
+ */
+
 @Service("adminService")
 public class AdminService extends ServiceImpl<AdminMapper, AdminEntity> implements IAdminService {
 

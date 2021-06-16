@@ -10,7 +10,10 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-
+/**
+ * form ZUCC_Zhangjz
+ * @author 41205
+ */
 @Configuration
 @EnableSwagger2
 public class Swagger2Configuration {

@@ -2,6 +2,8 @@ package cn.edu.shu.xj.ser.config;
 
 /**
  * 跨域问题解决
+ * form ZUCC_Zhangjz
+ * @author 41205
  */
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;

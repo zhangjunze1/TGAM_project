@@ -1,5 +1,10 @@
 package cn.edu.shu.xj.ser.response;
 
+/**
+ * form ZUCC_Zhangjz
+ * @author 41205
+ */
+
 public enum ResultCode implements CustomizeResultCode{
     /**
      * 20000 成功

@@ -23,6 +23,8 @@ import java.lang.reflect.Method;
 /**
  * 拦截器：写一个拦截器去获取token并验证token
  * 实现一个拦截器就需要实现HandlerInterceptor接口
+ * form ZUCC_Zhangjz
+ * @author 41205
  */
 public class AuthenticationInterceptor implements HandlerInterceptor {
     @Autowired

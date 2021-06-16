@@ -10,6 +10,8 @@ import java.util.Map;
 
 /**
  * 公共返回结果
+ * form ZUCC_Zhangjz
+ * @author 41205
  */
 @Data
 public class Result{

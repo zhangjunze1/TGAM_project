@@ -1,5 +1,11 @@
 package cn.edu.shu.xj.ser.response;
 
+
+/**
+ * form ZUCC_Zhangjz
+ * @author 41205
+ */
+
 public interface CustomizeResultCode {
     /**
      * 获取错误状态码

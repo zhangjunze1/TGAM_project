@@ -11,6 +11,8 @@ import org.springframework.stereotype.Service;
  * token的生成方法
  * Algorithm.HMAC256():使用HS256生成token,密钥则是商家的密码，唯一密钥的话可以保存在服务端。
  * withAudience()存入需要保存在token的信息，这里我把商家ID存入token中
+ * form ZUCC_Zhangjz
+ * @author 41205
  */
 @Service
 public class TokenService implements ITokenService {

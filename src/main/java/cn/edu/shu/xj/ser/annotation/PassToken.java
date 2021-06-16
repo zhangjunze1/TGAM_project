@@ -7,6 +7,8 @@ import java.lang.annotation.Target;
 
 /**
  * 用来跳过验证的PassToken
+ * form ZUCC_Zhangjz
+ * @author 41205
  */
 @Target({ElementType.METHOD, ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)

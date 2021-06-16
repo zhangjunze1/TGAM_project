@@ -6,6 +6,8 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * 分页插件
+ * form ZUCC_Zhangjz
+ * @author 41205
  */
 @Configuration
 public class MybatisPlusConfig {

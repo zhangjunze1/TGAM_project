@@ -9,6 +9,11 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * form ZUCC_Zhangjz
+ * @author 41205
+ */
+
 @Service("headService")
 public class HeadService extends ServiceImpl<HeadMapper, HeadEntity> implements IHeadService {
 

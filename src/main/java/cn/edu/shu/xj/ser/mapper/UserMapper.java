@@ -7,6 +7,11 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+/**
+ * form ZUCC_Zhangjz
+ * @author 41205
+ */
+
 @Component
 public interface UserMapper extends BaseMapper<UserEntity>{
 

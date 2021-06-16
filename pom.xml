@@ -11,8 +11,8 @@
     <groupId>cn.edu.shu.xj</groupId>
     <artifactId>ser</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>ser</name>
-    <description>Demo project for Spring Boot</description>
+    <name>TGAM_Zhangjz</name>
+    <description>Demo project for Spring Boot--Zhangjz</description>
 
     <properties>
         <java.version>1.8</java.version>
