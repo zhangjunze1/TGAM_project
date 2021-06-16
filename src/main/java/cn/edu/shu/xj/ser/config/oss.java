@@ -38,14 +38,11 @@ import java.util.Date;
 @RestController
 @Service
 public class oss {
-    String endpoint = "oss-cn-hangzhou.aliyuncs.com";
-    String accessKeyId = "LTAI5tBji2779oNNiitohXS7";
-    String accessKeySecret = "UOM079PXLVttYZCeLTuKaUq5hRXT2w";
-    String bucketName = "zhangjz-tgam-example";
-//    String endpoint = "oss-cn-beijing.aliyuncs.com";
-//    String accessKeyId = "LTAI4Fzpso7g5BD4acngSXGA";
-//    String accessKeySecret = "ABi1Mz2Xh4NVU4pT8TOPJncaAqJdVW";
-//    String bucketName = "rdcj";
+    String endpoint = "............";
+    String accessKeyId = "............";
+    String accessKeySecret = "............";
+    String bucketName = "............";
+
     String subPath = "test/";
     String carPath = "car/";
     OSS ossClient = new OSSClientBuilder().build(endpoint, accessKeyId, accessKeySecret);
